@@ -32,6 +32,27 @@ services:
       timeout: 5s
       retries: 5
 
+  # The chatbot itself (production build). Deployed by the n8n pipeline with:
+  #   docker compose up -d --build app
+  # Settings come from .env.production next to this file (never committed);
+  # inside this network the database host is "mongo", not 127.0.0.1.
+  app:
+    build: .
+    image: chatbotai-app
+    container_name: tourism-app
+    restart: unless-stopped
+    ports:
+      - "${APP_PORT:-3000}:3000"
+    env_file:
+      - path: .env.production
+        required: false
+    volumes:
+      # Embedding model download, kept across rebuilds.
+      - model-cache:/app/.cache/transformers
+    depends_on:
+      mongo:
+        condition: service_healthy
+
   # n8n (the "brain") in the same stack. Inside this network the database is
   # reachable as mongodb://tourism:tourism@mongo:27017/tourism_bot?authSource=admin
   n8n:
@@ -52,3 +73,4 @@ services:
 volumes:
   mongo-data:
   n8n-data:
+  model-cache:

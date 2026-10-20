@@ -1,0 +1,98 @@
+{
+  "Chat": {
+    "title": "Trợ lý du lịch",
+    "description": "Đặt câu hỏi về chuyến đi, giá cả và điểm đến.",
+    "admin": "Quản trị",
+    "language": "Ngôn ngữ",
+    "welcome": "Xin chào! Hãy hỏi tôi về chuyến đi, giá cả, điểm đến hoặc đặt chỗ.",
+    "placeholder": "Đặt câu hỏi…",
+    "send": "Gửi",
+    "thinking": "Đang suy nghĩ…",
+    "noAnswer": "Tôi chưa có câu trả lời cho câu hỏi này. Vui lòng liên hệ trực tiếp với đội ngũ của chúng tôi.",
+    "error": "Xin lỗi, đã xảy ra lỗi: {message}"
+  },
+  "Admin": {
+    "brand": "Trợ lý du lịch · Quản trị",
+    "language": "Ngôn ngữ",
+    "nav": {
+      "questions": "Câu hỏi",
+      "departments": "Phòng ban",
+      "chat": "Trò chuyện",
+      "signOut": "Đăng xuất"
+    },
+    "tabs": { "addDepartment": "+ Phòng ban" },
+    "search": { "placeholder": "Tìm câu hỏi, câu trả lời, thẻ", "button": "Tìm" },
+    "addEntry": "Thêm mục",
+    "noDepartments": { "title": "Chưa có phòng ban nào.", "cta": "Tạo phòng ban đầu tiên →" },
+    "table": {
+      "question": "Câu hỏi",
+      "tags": "Thẻ",
+      "updated": "Cập nhật",
+      "actions": "Thao tác",
+      "edit": "Sửa",
+      "delete": "Xóa",
+      "noMatch": "Không có mục nào khớp với tìm kiếm.",
+      "noEntries": "Chưa có mục nào trong {department}.",
+      "variations": "+{count, plural, other {# cách hỏi khác}}",
+      "count": "{count, plural, other {# mục}} trong {department}"
+    },
+    "pager": { "previous": "← Trước", "next": "Sau →", "page": "Trang {page} / {total}" },
+    "form": {
+      "addTitle": "Thêm mục",
+      "editTitle": "Sửa mục",
+      "department": "Phòng ban",
+      "questions": "Câu hỏi",
+      "questionsHint": "mọi cách khách hàng có thể hỏi",
+      "questionPlaceholder": "Giá một tuần ở Crete vào tháng 7 khoảng bao nhiêu?",
+      "variationPlaceholder": "Một cách hỏi khác cho cùng nội dung",
+      "remove": "Xóa cách hỏi này",
+      "addVariation": "+ Thêm cách hỏi",
+      "variationsHint": "Tiếng Anh hoặc tiếng Do Thái, trộn tùy ý. Mỗi cách hỏi được nhúng riêng và tất cả đều dẫn đến câu trả lời bên dưới. Tối đa {max}.",
+      "answer": "Câu trả lời",
+      "answerHint": "Viết bằng tiếng Do Thái hoặc tiếng Anh. Khách hàng sẽ thấy đúng như đã nhập.",
+      "tags": "Thẻ",
+      "tagsPlaceholder": "crete, giá, mùa hè",
+      "tagsHint": "Phân cách bằng dấu phẩy. Chỉ dùng cho tìm kiếm của quản trị viên.",
+      "save": "Lưu",
+      "saving": "Đang lưu và nhúng…",
+      "cancel": "Hủy"
+    },
+    "departments": {
+      "title": "Phòng ban",
+      "intro": "Phòng ban giúp quản trị viên sắp xếp câu hỏi. Khách hàng luôn tìm trên tất cả.",
+      "placeholder": "Tên phòng ban mới, ví dụ Đặt chỗ",
+      "add": "Thêm",
+      "rename": "Đổi tên",
+      "delete": "Xóa",
+      "none": "Chưa có phòng ban nào.",
+      "deleteHint": "Chỉ có thể xóa phòng ban khi không còn câu hỏi nào."
+    },
+    "errors": {
+      "pickDepartment": "Hãy chọn phòng ban",
+      "questionShort": "Một câu hỏi quá ngắn",
+      "questionLong": "Một câu hỏi quá dài",
+      "minOneQuestion": "Thêm ít nhất một câu hỏi",
+      "maxVariations": "Tối đa {max} cách hỏi",
+      "answerRequired": "Cần có câu trả lời",
+      "answerLong": "Câu trả lời quá dài",
+      "invalid": "Dữ liệu không hợp lệ",
+      "unknownDepartment": "Phòng ban không tồn tại",
+      "gone": "Mục này không còn tồn tại",
+      "saveFailed": "Không lưu được. Mô hình nhúng đã tải xuống và cơ sở dữ liệu có truy cập được không?",
+      "nameShort": "Tên quá ngắn",
+      "duplicateDepartment": "Đã có phòng ban với tên này",
+      "stillHasQuestions": "Phòng ban này vẫn còn câu hỏi",
+      "cannotDelete": "Không xóa được",
+      "createDepartmentFirst": "Hãy tạo phòng ban trước"
+    },
+    "login": {
+      "title": "Đăng nhập quản trị",
+      "intro": "Chỉ quản trị viên mới có thể quản lý câu hỏi và câu trả lời.",
+      "invalid": "Email hoặc mật khẩu không đúng.",
+      "email": "Email",
+      "password": "Mật khẩu",
+      "submit": "Đăng nhập",
+      "back": "Quay lại trợ lý"
+    }
+  }
+}

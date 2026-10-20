@@ -1,0 +1,54 @@
+# Local MongoDB for this project, reachable by the Next.js app, Compass and n8n.
+#
+#   docker compose up -d                  # database + n8n
+#   docker compose up -d mongo            # database only
+#   docker compose down                   # stop (data kept in the volume)
+#   docker compose down -v                # stop and wipe data
+#
+# Connection strings (user/password default to tourism/tourism; override with MONGO_USER / MONGO_PASSWORD env vars):
+#   from this machine:          mongodb://tourism:tourism@127.0.0.1:27018/tourism_bot?authSource=admin
+#   from a container on the     mongodb://tourism:tourism@mongo:27017/tourism_bot?authSource=admin
+#     same compose network:
+#   from another Docker         mongodb://tourism:tourism@host.docker.internal:27018/tourism_bot?authSource=admin
+#     container on this machine:
+
+services:
+  mongo:
+    image: mongo:8
+    container_name: tourism-mongo
+    restart: unless-stopped
+    ports:
+      # Host port 27018 so it never clashes with a MongoDB already on 27017.
+      - "27018:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: ${MONGO_USER:-tourism}
+      MONGO_INITDB_ROOT_PASSWORD: ${MONGO_PASSWORD:-tourism}
+      MONGO_INITDB_DATABASE: tourism_bot
+    volumes:
+      - mongo-data:/data/db
+    healthcheck:
+      test: ["CMD", "mongosh", "--quiet", "--eval", "db.adminCommand('ping').ok"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # n8n (the "brain") in the same stack. Inside this network the database is
+  # reachable as mongodb://tourism:tourism@mongo:27017/tourism_bot?authSource=admin
+  n8n:
+    image: n8nio/n8n:latest
+    container_name: tourism-n8n
+    restart: unless-stopped
+    ports:
+      - "5678:5678"
+    environment:
+      N8N_SECURE_COOKIE: "false"
+      GENERIC_TIMEZONE: Asia/Jerusalem
+    volumes:
+      - n8n-data:/home/node/.n8n
+    depends_on:
+      mongo:
+        condition: service_healthy
+
+volumes:
+  mongo-data:
+  n8n-data:

@@ -1,0 +1,98 @@
+{
+  "Chat": {
+    "title": "Travel assistant",
+    "description": "Ask questions about trips, prices and destinations.",
+    "admin": "Admin",
+    "language": "Language",
+    "welcome": "Hi! Ask me about trips, prices, destinations or bookings.",
+    "placeholder": "Ask a question…",
+    "send": "Send",
+    "thinking": "Thinking…",
+    "noAnswer": "I don't have an answer for that yet. Please contact our team directly.",
+    "error": "Sorry, something went wrong: {message}"
+  },
+  "Admin": {
+    "brand": "Travel assistant · Admin",
+    "language": "Language",
+    "nav": {
+      "questions": "Questions",
+      "departments": "Departments",
+      "chat": "Chat",
+      "signOut": "Sign out"
+    },
+    "tabs": { "addDepartment": "+ Department" },
+    "search": { "placeholder": "Search questions, answers, tags", "button": "Search" },
+    "addEntry": "Add entry",
+    "noDepartments": { "title": "No departments yet.", "cta": "Create the first department →" },
+    "table": {
+      "question": "Question",
+      "tags": "Tags",
+      "updated": "Updated",
+      "actions": "Actions",
+      "edit": "Edit",
+      "delete": "Delete",
+      "noMatch": "No entries match your search.",
+      "noEntries": "No entries in {department} yet.",
+      "variations": "+{count, plural, =1 {# variation} other {# variations}}",
+      "count": "{count, plural, =1 {# entry} other {# entries}} in {department}"
+    },
+    "pager": { "previous": "← Previous", "next": "Next →", "page": "Page {page} of {total}" },
+    "form": {
+      "addTitle": "Add entry",
+      "editTitle": "Edit entry",
+      "department": "Department",
+      "questions": "Questions",
+      "questionsHint": "all the ways a customer might ask",
+      "questionPlaceholder": "What is the price range for a week in Crete in July?",
+      "variationPlaceholder": "Another way to ask the same thing",
+      "remove": "Remove this variation",
+      "addVariation": "+ Add a variation",
+      "variationsHint": "English or Hebrew, in any mix. Each variation is embedded separately, and all of them lead to the answer below. Up to {max}.",
+      "answer": "Answer",
+      "answerHint": "Write it in Hebrew or English. It is shown to the customer exactly as typed.",
+      "tags": "Tags",
+      "tagsPlaceholder": "crete, pricing, summer",
+      "tagsHint": "Comma separated. Used for admin search only.",
+      "save": "Save",
+      "saving": "Saving and embedding…",
+      "cancel": "Cancel"
+    },
+    "departments": {
+      "title": "Departments",
+      "intro": "Departments organise questions for admins. Customers always search all of them.",
+      "placeholder": "New department name, e.g. Reservations",
+      "add": "Add",
+      "rename": "Rename",
+      "delete": "Delete",
+      "none": "No departments yet.",
+      "deleteHint": "A department can only be deleted when it has no questions."
+    },
+    "errors": {
+      "pickDepartment": "Pick a department",
+      "questionShort": "A question is too short",
+      "questionLong": "A question is too long",
+      "minOneQuestion": "Add at least one question",
+      "maxVariations": "At most {max} question variations",
+      "answerRequired": "Answer is required",
+      "answerLong": "Answer is too long",
+      "invalid": "Invalid input",
+      "unknownDepartment": "Unknown department",
+      "gone": "This entry no longer exists",
+      "saveFailed": "Could not save. Is the embedding model downloaded and the database reachable?",
+      "nameShort": "Name is too short",
+      "duplicateDepartment": "A department with that name already exists",
+      "stillHasQuestions": "This department still has questions",
+      "cannotDelete": "Could not delete",
+      "createDepartmentFirst": "Create a department first"
+    },
+    "login": {
+      "title": "Admin login",
+      "intro": "Only administrators can manage questions and answers.",
+      "invalid": "Invalid email or password.",
+      "email": "Email",
+      "password": "Password",
+      "submit": "Sign in",
+      "back": "Back to the assistant"
+    }
+  }
+}

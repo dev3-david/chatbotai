@@ -1,0 +1,98 @@
+{
+  "Chat": {
+    "title": "עוזר הנסיעות",
+    "description": "שאלו שאלות על טיולים, מחירים ויעדים.",
+    "admin": "ניהול",
+    "language": "שפה",
+    "welcome": "שלום! שאלו אותי על טיולים, מחירים, יעדים או הזמנות.",
+    "placeholder": "שאלו שאלה…",
+    "send": "שליחה",
+    "thinking": "חושב…",
+    "noAnswer": "עדיין אין לי תשובה לשאלה הזו. אנא פנו לצוות שלנו ישירות.",
+    "error": "מצטערים, משהו השתבש: {message}"
+  },
+  "Admin": {
+    "brand": "עוזר הנסיעות · ניהול",
+    "language": "שפה",
+    "nav": {
+      "questions": "שאלות",
+      "departments": "מחלקות",
+      "chat": "צ'אט",
+      "signOut": "התנתקות"
+    },
+    "tabs": { "addDepartment": "+ מחלקה" },
+    "search": { "placeholder": "חיפוש בשאלות, תשובות ותגיות", "button": "חיפוש" },
+    "addEntry": "הוספת רשומה",
+    "noDepartments": { "title": "אין עדיין מחלקות.", "cta": "יצירת המחלקה הראשונה ←" },
+    "table": {
+      "question": "שאלה",
+      "tags": "תגיות",
+      "updated": "עודכן",
+      "actions": "פעולות",
+      "edit": "עריכה",
+      "delete": "מחיקה",
+      "noMatch": "אין רשומות התואמות לחיפוש.",
+      "noEntries": "אין עדיין רשומות במחלקה {department}.",
+      "variations": "+{count, plural, =1 {ניסוח נוסף} other {# ניסוחים נוספים}}",
+      "count": "{count, plural, =1 {רשומה אחת} other {# רשומות}} במחלקה {department}"
+    },
+    "pager": { "previous": "→ הקודם", "next": "הבא ←", "page": "עמוד {page} מתוך {total}" },
+    "form": {
+      "addTitle": "הוספת רשומה",
+      "editTitle": "עריכת רשומה",
+      "department": "מחלקה",
+      "questions": "שאלות",
+      "questionsHint": "כל הדרכים שבהן לקוח עשוי לשאול",
+      "questionPlaceholder": "מה טווח המחירים לשבוע בכרתים ביולי?",
+      "variationPlaceholder": "דרך נוספת לשאול את אותו הדבר",
+      "remove": "הסרת הניסוח הזה",
+      "addVariation": "+ הוספת ניסוח",
+      "variationsHint": "בעברית או באנגלית, בכל שילוב. כל ניסוח מקודד בנפרד, וכולם מובילים לתשובה שלמטה. עד {max}.",
+      "answer": "תשובה",
+      "answerHint": "כתבו בעברית או באנגלית. התשובה מוצגת ללקוח בדיוק כפי שהוקלדה.",
+      "tags": "תגיות",
+      "tagsPlaceholder": "כרתים, מחירים, קיץ",
+      "tagsHint": "מופרדות בפסיקים. משמשות לחיפוש בניהול בלבד.",
+      "save": "שמירה",
+      "saving": "שומר ומקודד…",
+      "cancel": "ביטול"
+    },
+    "departments": {
+      "title": "מחלקות",
+      "intro": "המחלקות מארגנות את השאלות עבור המנהלים. לקוחות תמיד מחפשים בכולן.",
+      "placeholder": "שם מחלקה חדשה, למשל הזמנות",
+      "add": "הוספה",
+      "rename": "שינוי שם",
+      "delete": "מחיקה",
+      "none": "אין עדיין מחלקות.",
+      "deleteHint": "ניתן למחוק מחלקה רק כאשר אין בה שאלות."
+    },
+    "errors": {
+      "pickDepartment": "יש לבחור מחלקה",
+      "questionShort": "אחת השאלות קצרה מדי",
+      "questionLong": "אחת השאלות ארוכה מדי",
+      "minOneQuestion": "יש להוסיף לפחות שאלה אחת",
+      "maxVariations": "לכל היותר {max} ניסוחים לשאלה",
+      "answerRequired": "חובה להזין תשובה",
+      "answerLong": "התשובה ארוכה מדי",
+      "invalid": "קלט לא תקין",
+      "unknownDepartment": "מחלקה לא מוכרת",
+      "gone": "הרשומה הזו כבר לא קיימת",
+      "saveFailed": "השמירה נכשלה. האם מודל הקידוד הורד ומסד הנתונים זמין?",
+      "nameShort": "השם קצר מדי",
+      "duplicateDepartment": "כבר קיימת מחלקה בשם הזה",
+      "stillHasQuestions": "במחלקה הזו עדיין יש שאלות",
+      "cannotDelete": "המחיקה נכשלה",
+      "createDepartmentFirst": "יש ליצור מחלקה קודם"
+    },
+    "login": {
+      "title": "כניסת מנהלים",
+      "intro": "רק מנהלים יכולים לנהל שאלות ותשובות.",
+      "invalid": "אימייל או סיסמה שגויים.",
+      "email": "אימייל",
+      "password": "סיסמה",
+      "submit": "כניסה",
+      "back": "חזרה לעוזר"
+    }
+  }
+}

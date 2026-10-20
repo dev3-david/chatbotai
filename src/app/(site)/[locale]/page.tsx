@@ -15,15 +15,13 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
   return (
     <div className="flex flex-1 flex-col bg-zinc-50">
       <header className="border-b border-zinc-200 bg-white">
-        <div className="mx-auto flex w-full max-w-3xl items-center justify-between gap-4 px-4 py-3">
+        <div className="mx-auto flex w-full max-w-3xl items-center gap-4 px-4 py-3">
           <h1 className="text-lg font-semibold text-zinc-900">{t("title")}</h1>
-          <div className="flex items-center gap-4">
-            <LanguageSwitcher label={t("language")} />
-            {/* Admin area is English-only and lives outside the locale routes. */}
-            <Link href="/admin" className="text-sm text-zinc-500 hover:text-zinc-900">
-              {t("admin")}
-            </Link>
-          </div>
+          {/* Admin area is English-only and lives outside the locale routes. */}
+          <Link href="/admin" className="ms-auto text-sm text-zinc-500 hover:text-zinc-900">
+            {t("admin")}
+          </Link>
+          <LanguageSwitcher label={t("language")} />
         </div>
       </header>
       <main className="mx-auto flex w-full max-w-3xl flex-1 flex-col px-4 py-6">

@@ -15,6 +15,8 @@ export function AdminLanguageSwitcher({ label }: { label: string }) {
   return (
     <select
       aria-label={label}
+      // Always LTR so the dropdown arrow stays on the right in RTL languages too.
+      dir="ltr"
       value={locale}
       disabled={pending}
       onChange={(e) => {
@@ -24,7 +26,8 @@ export function AdminLanguageSwitcher({ label }: { label: string }) {
           router.refresh();
         });
       }}
-      className="rounded-lg border border-zinc-300 bg-white px-2 py-1 text-sm text-zinc-900 disabled:opacity-60"
+      // Pinned to the physical right edge of the top bar (see LanguageSwitcher).
+      className="order-last rtl:order-first rounded-lg border border-zinc-300 bg-white px-2 py-1 text-sm text-zinc-900 disabled:opacity-60"
     >
       {routing.locales.map((l) => (
         <option key={l} value={l}>

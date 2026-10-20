@@ -1,0 +1,40 @@
+# CI for chatbotai: install, lint, typecheck, build.
+#
+# Started by the n8n workflow "GitHub CI/CD Poller (chatbotai)" when it sees a
+# new commit on main. n8n passes the commit SHA as the `sha` input and finds
+# this run again by its title ("CI <sha>"), so keep run-name in that format.
+#
+# Can also be started by hand: Actions tab → CI → Run workflow.
+
+name: CI
+run-name: CI ${{ inputs.sha }}
+
+on:
+  workflow_dispatch:
+    inputs:
+      sha:
+        description: Commit SHA to build
+        required: true
+        type: string
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ inputs.sha }}
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+
+      - run: npm ci
+      - run: npm run lint
+      - run: npm run typecheck
+      - run: npm run build

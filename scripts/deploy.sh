@@ -19,8 +19,10 @@ for _ in $(seq 1 45); do
   sleep 2
 done
 
-# Old image layers pile up on every rebuild; the disk is only 32 GB.
+# Old images and build cache pile up on every rebuild; the disk is only 32 GB.
+# Cap the build cache at 3 GB: enough to keep the npm install layer warm.
 docker image prune -f >/dev/null
+docker builder prune -f --max-used-space 3gb >/dev/null
 
 if [ "$code" != "200" ]; then
   echo "!! Health check failed (HTTP $code). Last app logs:"

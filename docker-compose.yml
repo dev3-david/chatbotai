@@ -53,6 +53,25 @@ services:
       mongo:
         condition: service_healthy
 
+  # One-off maintenance commands against the same database (never started by
+  # `docker compose up`). Examples, run on the server in /opt/chatbotai:
+  #   docker compose run --rm tools npm run seed      # indexes + default departments
+  #   docker compose run --rm tools npm run reembed   # after changing EMBEDDING_MODEL
+  tools:
+    build:
+      context: .
+      target: tools
+    image: chatbotai-tools
+    profiles: ["tools"]
+    env_file:
+      - path: .env.production
+        required: false
+    volumes:
+      - model-cache:/app/.cache/transformers
+    depends_on:
+      mongo:
+        condition: service_healthy
+
   # n8n (the "brain") in the same stack. Inside this network the database is
   # reachable as mongodb://tourism:tourism@mongo:27017/tourism_bot?authSource=admin
   n8n:

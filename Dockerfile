@@ -13,7 +13,16 @@ WORKDIR /app
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
 ENV NEXT_TELEMETRY_DISABLED=1
-RUN npm run build && npm prune --omit=dev
+RUN npm run build
+
+# Maintenance image with dev dependencies and scripts/ (seed, migrate, reembed).
+# Not deployed; built on demand by `docker compose run --rm tools npm run seed`.
+FROM build AS tools
+ENV TRANSFORMERS_CACHE=/app/.cache/transformers
+CMD ["npm", "run", "seed"]
+
+FROM build AS prod-deps
+RUN npm prune --omit=dev
 
 FROM node:24-bookworm-slim AS runner
 WORKDIR /app
@@ -23,12 +32,12 @@ ENV NODE_ENV=production \
     HOSTNAME=0.0.0.0 \
     TRANSFORMERS_CACHE=/app/.cache/transformers
 
-COPY --from=build --chown=node:node /app/package.json ./
-COPY --from=build --chown=node:node /app/next.config.ts ./
-COPY --from=build --chown=node:node /app/node_modules ./node_modules
-COPY --from=build --chown=node:node /app/.next ./.next
-COPY --from=build --chown=node:node /app/public ./public
-COPY --from=build --chown=node:node /app/messages ./messages
+COPY --from=prod-deps --chown=node:node /app/package.json ./
+COPY --from=prod-deps --chown=node:node /app/next.config.ts ./
+COPY --from=prod-deps --chown=node:node /app/node_modules ./node_modules
+COPY --from=prod-deps --chown=node:node /app/.next ./.next
+COPY --from=prod-deps --chown=node:node /app/public ./public
+COPY --from=prod-deps --chown=node:node /app/messages ./messages
 RUN mkdir -p /app/.cache/transformers && chown -R node:node /app/.cache
 
 USER node
